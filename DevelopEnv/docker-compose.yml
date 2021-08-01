@@ -4,9 +4,13 @@ services:
     web:
         build:
             context: .
+        image: ${DOCKER_USER_ID}/flask
+    production:
+        image: ${DOCKER_USER_ID}/flask:${BUILD_NUMBER}
         ports:
             - 9001:9001
         volumes:    
             - ../app:/home/app
+        command: python3 app.py
         
     
