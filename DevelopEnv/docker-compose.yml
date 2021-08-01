@@ -5,6 +5,8 @@ services:
         build:
             context: .
         image: ${DOCKER_USER_ID}/flask
+        volumes:    
+            - ../app:/home/app
     production:
         image: ${DOCKER_USER_ID}/flask:${BUILD_NUMBER}
         ports:
